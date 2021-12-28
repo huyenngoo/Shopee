@@ -1,0 +1,32 @@
+/*mobile & tablet*/
+
+@media (max-width: 1023px) {
+    :root {  /*dinh nghia lai bien cua root khi responsive*/
+        --navbar-height: 0px;
+        --header-height: 68px;
+    }
+    .hide-on-mobile-tablet {
+        display: none;
+    }
+}
+
+/*tablet*/
+
+@media (min-width: 740px) and (max-width: 1023px) {
+    .hide-on-tablet {
+        display: none;
+    }
+
+    .header__cart {
+        width: 75px;
+        text-align: right;
+    }
+}
+
+/*mobile*/
+
+@media (max-width: 739px) {
+    .hide-on-mobile {
+        display: none;
+    }
+}
