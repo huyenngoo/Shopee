@@ -1,3 +1,7 @@
+.app {
+   overflow: hidden; 
+}
+
 .header {
     height: var(--header-height);
     background-image: linear-gradient(0, #fe6433, #f53e2d);
@@ -501,6 +505,16 @@
     margin-left: 7px;
 }
 
+.header__mobile-search {
+    padding: 0 8px;
+    display: none;
+}
+
+.header__mobile-search-icon {
+    font-size: 2.6rem;
+    color: var(--white-color);
+}
+
 .header__logo {
     width: 200px;
 }
@@ -508,6 +522,8 @@
 .header__logo-link {
     text-decoration: none;
     color: transparent;
+    display: block;
+    line-height: 0;
 }
 
 .header__logo-img {
@@ -537,6 +553,8 @@
     display: inline-block;  /*hien thi dung bang kich thuoc cua no khong co padding hay margin*/
     padding: 0 8px;
     cursor: pointer;
+    -webkit-tap-highlight-color: transparent;
+
 }
 
 .header__cart-wrap:hover .header__cart-list{
@@ -912,6 +930,7 @@
 }
 
 /*App container*/
+
 .app__container {
      background-color: #f5f5f5;
  }
@@ -987,6 +1006,60 @@
 .category-item__link:hover {
     right: -4px;
     color: var(--primary-color);
+}
+
+/*mobile category*/
+.mobile-category {
+    display: none;
+}
+
+.mobile-category__list {
+    display: flex;
+    list-style: none;
+    padding-left: 0;
+    max-width: 100%;
+    overflow-x: auto;
+
+}
+
+.mobile-category__list::-webkit-scrollbar { /*sn thanh scroll di*/
+    display: none;
+}
+
+.mobile-category__item {
+    flex-shrink: 0;
+    margin-right: 10px;
+    font-weight: 300;
+}
+
+.mobile-category__item:nth-of-type(3n+1) .mobile-category__link{
+    background-color: #87afd8;
+}
+.mobile-category__item:nth-of-type(3n+2) .mobile-category__link{
+    background-color: #76c98d;
+}
+.mobile-category__item:nth-of-type(3n+3) .mobile-category__link{
+    background-color: #ee8cb5;
+}
+.mobile-category__link {
+    padding: 0 4px;
+    --line-height: 2rem;
+    text-decoration: none;
+    color: var(--white-color);
+    font-size: 1.4rem;
+    line-height: var(--line-height);
+    height: calc(var(--line-height) * 2);
+    overflow: hidden;
+    display: block;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+    text-align: center;
+    width: 110px;
+    border-radius: 4px;
+    user-select: none;
+    -webkit-user-select: none;
+    -webkit-tap-highlight-color: transparent; /*bo di highlight khi an nut*/
 }
 
 /*Home sortr + filter*/
@@ -1336,4 +1409,53 @@ i.home-product-item__like-icon-fill {
     font-size: 1.4rem;
     text-align: center;
     color: #737373;
+}
+
+/*header sort bar*/
+
+.header__sort-bar {
+    position: fixed;
+    top: var(--header-height);
+    left: 0;
+    right: 0;
+    height: var(--header-sort-bar-height);
+    background-color: var(--white-color);
+    list-style: none;
+    margin: 0;
+    padding-left: 0;
+    border-top: 1px solid #e5e5e5;
+    border-bottom: 1px solid #e5e5e5;
+    display: none;
+}
+
+.header__sort--item {
+    flex: 1;
+}
+
+.header__sort--item:first-child .header__sort-link::before {
+    display: none;
+}
+
+.header__sort-link {
+    text-decoration: none;
+    color: var(--text-color);
+    font-size: 1.4rem;
+    display: block;
+    height: 100%;
+    line-height: var(--header-sort-bar-height);
+    text-align: center;
+    position: relative;
+}
+
+.header__sort-link::before {
+    content: "";
+    position: absolute;
+    top: 50%;  /*cho ra giua: di chuyen len top bang 1 khoang bang 1 nua top:50% */
+    left: 0;
+    height: 60%;
+    border-left: 1px solid #e5e5e5;
+    transform: translateY(-50%);
+}
+.header__sort-item-acitve .header__sort-link{
+    color: var(--primary-color);
 }
